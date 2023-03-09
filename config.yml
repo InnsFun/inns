@@ -1,0 +1,37 @@
+accounts:
+  - name: alice
+    coins: ["20000inns", "200000000uinns"]
+  - name: bob
+    coins: ["10000inns", "100000000uinns"]
+validator:
+  name: alice
+  staked: "100000000uinns"
+client:
+  openapi:
+    path: "docs/static/openapi.yml"
+  vuex:
+    path: "vue/src/store"
+faucet:
+  name: bob
+  coins: ["5inns", "100000uinns"]
+
+genesis:
+  chain_id: "inns-1"
+  consensus_params:
+    block: 
+        max_gas: "15000000" # need a suitable value
+  app_state:
+    staking:
+      params:
+        bond_denom: "uinns"
+    crisis:
+      constant_fee:
+        denom: "uinns"
+    gov:
+      deposit_params:
+        min_deposit:
+          - amount: "10000000"
+            denom: "uinns"
+    mint:
+      params:
+        mint_denom: "uinns"
